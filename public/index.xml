@@ -15,9 +15,9 @@
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Not My Cup of Tea: Vibe-Coding</title>
-				<link>http://localhost:1313/posts/not_my_cup_of_a_tea_vibe_coding/</link>
+				<link>http://localhost:1313/posts/not-my-cup-of-a-tea-vibe-coding/</link>
 				<pubDate>Sat, 11 Jul 2026 08:58:17 +0700</pubDate>
-				<guid>http://localhost:1313/posts/not_my_cup_of_a_tea_vibe_coding/</guid>
+				<guid>http://localhost:1313/posts/not-my-cup-of-a-tea-vibe-coding/</guid>
 				<description>This is the opposite of how I use AI.</description>
 			</item>
 			<item>
