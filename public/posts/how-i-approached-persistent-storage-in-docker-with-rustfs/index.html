@@ -26,27 +26,27 @@
 <link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313/android-chrome-192x192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/apple-touch-icon.png">
 
-<meta name="description" content="This is the opposite of how I use AI."/>
+<meta name="description" content="A look at how I solved persistent file storage in containerized applications using RustFS."/>
 
 
 
 <title>
     
-    Not My Cup of Tea: Vibe-Coding | Mario Wibisono
+    How I Approached Persistent Storage in Docker with RustFS | Mario Wibisono
     
 </title>
 
-<link rel="canonical" href="http://localhost:1313/posts/not-my-cup-of-a-tea-vibe-coding/"/>
+<link rel="canonical" href="http://localhost:1313/posts/how-i-approached-persistent-storage-in-docker-with-rustfs/"/>
 
-<meta property="og:url" content="http://localhost:1313/posts/not-my-cup-of-a-tea-vibe-coding/">
+<meta property="og:url" content="http://localhost:1313/posts/how-i-approached-persistent-storage-in-docker-with-rustfs/">
   <meta property="og:site_name" content="Mario Wibisono">
-  <meta property="og:title" content="Not My Cup of Tea: Vibe-Coding">
-  <meta property="og:description" content="This is the opposite of how I use AI.">
+  <meta property="og:title" content="How I Approached Persistent Storage in Docker with RustFS">
+  <meta property="og:description" content="A look at how I solved persistent file storage in containerized applications using RustFS.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-07-11T08:58:17+07:00">
-    <meta property="article:modified_time" content="2026-07-11T08:58:17+07:00">
+    <meta property="article:published_time" content="2026-07-21T07:33:51+07:00">
+    <meta property="article:modified_time" content="2026-07-21T07:33:51+07:00">
 
 
 
@@ -139,24 +139,22 @@
 
 
 <div class="breadcrumbs"><a href="/">Home</a><span class="breadcrumbs-separator">/</span><a href="/posts/">Posts</a><span class="breadcrumbs-separator">/</span>
-        <a href="/posts/not-my-cup-of-a-tea-vibe-coding/">Not My Cup of Tea: Vibe-Coding</a></div>
+        <a href="/posts/how-i-approached-persistent-storage-in-docker-with-rustfs/">How I Approached Persistent Storage in Docker with RustFS</a></div>
 
 
 <div >
   <article>
     <header class="single-intro-container">
         
-        <h1 class="single-title">Not My Cup of Tea: Vibe-Coding</h1>
-        <p class="single-summary">This is the opposite of how I use AI.</p>
+        <h1 class="single-title">How I Approached Persistent Storage in Docker with RustFS</h1>
+        <p class="single-summary">A look at how I solved persistent file storage in containerized applications using RustFS.</p>
         
         <div class="single-subsummary">
           
           <div>
             
-            <p class="author">Mario Wibisono </p>
-            
             <p class="single-date">
-              <time datetime="2026-07-11T08:58:17&#43;07:00">July 11, 2026</time>
+              <time datetime="2026-07-21T07:33:51&#43;07:00">July 21, 2026</time>
             </p>
           </div>
         </div>
@@ -164,12 +162,10 @@
     </header>
     
     <div class="single-content">
-      <p>In this hard time, I know that everyone wants instant results. With prompts, they want their needs satisfied like magic. Abracadabra! You have a product.</p>
-<p>Nowadays, everyone is talking about AI. On Threads, a lot of programmers brag about their vibe-coding agents. They build end-to-end systems using nothing but prompts and markdown files to tell the AI which rules to follow. I&rsquo;m not anti-vibe-coding, since I&rsquo;ve tried it too, building things with agents and MCP. But in the end, I feel it&rsquo;s not my cup of tea.</p>
-<p>What I prefer is using AI only when I really need it, for example, to answer questions I&rsquo;d otherwise have to search for on Stack Overflow, or in cases where my code linter, application logs, or system logs give no clues.</p>
-<p>I code in Neovim, and there&rsquo;s a plugin called CodeCompanion. You have to check out their website, it&rsquo;s an awesome plugin! It has agentic features, MCP support, and other nice tools, but honestly, I never use those anymore, except for the editor context: #buffer, #buffers, #diagnostics.</p>
-<p>What I do with CodeCompanion is as simple as asking what, why, and how, not generating whole chunks of code that could burn through all your tokens. I usually only need $6 of Claude API credit per month. I don&rsquo;t know about you, but that fits my needs just fine.</p>
-<p>The worst outcome of using AI without control is that it sometimes hallucinates answers based on old documentation, which may give us a deprecated response. And if we don&rsquo;t know the programming language fundamentals, it will lead us to error-prone code and untraced security holes. Please use AI wisely, as your companion.</p>
+      <p>As software engineers, we often save images, audio, and video files alongside our application in a server. While this approach is convenient during development, it becomes problematic in production. Since I&rsquo;ve moved to a fully containerized deployment, any files saved within a container are lost when a new container is deployed. To solve this, I&rsquo;m separating uploads to a dedicated storage solution.</p>
+<p>Several object storage options are available: S3, Google Cloud Storage, Azure Blob Storage, and others, each with different pricing models to consider. In a containerized environment, I could run an S3 compatible object storage like MinIO, but unfortunately their GitHub repository is no longer maintained. Fortunately, there&rsquo;s an excellent alternative called RustFS.</p>
+<p>I run RustFS behind Traefik and Cloudflare for public access with authentication enabled. RustFS provides two URL endpoints: one for accessing objects and another for the web console. The RustFS console is a dashboard for managing buckets, IAM, and other settings, it can be enabled or disabled during setup via environment variables. Another advantage is that you can use any existing S3 client library, so there&rsquo;s no need to refactor code if you already use S3.</p>
+<p>With dedicated object storage in place, managing multimedia and scaling becomes straightforward without straining the application server.</p>
 
     </div>
   </article>
@@ -188,18 +184,18 @@
 
         <div class="single-pagination-prev">
             
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/posts/not-my-cup-of-a-tea-vibe-coding/">
+                        Not My Cup of Tea: Vibe-Coding
+                    </a>
+                </div>
+            </div>
+            
         </div>
 
         <div class="single-pagination-next">
-            
-            <div class="single-pagination-container-next">
-                <div class="single-pagination-text">
-                    <a href="/posts/how-i-approached-persistent-storage-in-docker-with-rustfs/">
-                        How I Approached Persistent Storage in Docker with RustFS
-                    </a>
-                </div>
-                <div class="single-pagination-text">→</div>
-            </div>
             
         </div>
 

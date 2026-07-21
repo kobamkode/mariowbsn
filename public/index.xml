@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Sat, 11 Jul 2026 08:58:17 +0700</lastBuildDate>
+			<lastBuildDate>Tue, 21 Jul 2026 07:33:51 +0700</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>How I Approached Persistent Storage in Docker with RustFS</title>
+				<link>http://localhost:1313/posts/how-i-approached-persistent-storage-in-docker-with-rustfs/</link>
+				<pubDate>Tue, 21 Jul 2026 07:33:51 +0700</pubDate>
+				<guid>http://localhost:1313/posts/how-i-approached-persistent-storage-in-docker-with-rustfs/</guid>
+				<description>A look at how I solved persistent file storage in containerized applications using RustFS.</description>
+			</item>
 			<item>
 				<title>Not My Cup of Tea: Vibe-Coding</title>
 				<link>http://localhost:1313/posts/not-my-cup-of-a-tea-vibe-coding/</link>
