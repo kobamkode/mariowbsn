@@ -1,7 +1,7 @@
 +++
 author = 'Mario Wibisono'
 date = '2026-07-11T08:58:17+07:00'
-draft = false
+draft = true
 title = 'Not My Cup of Tea: Vibe-Coding'
 summary = 'This is the opposite of how I use AI.'
 description = 'This is the opposite of how I use AI.'

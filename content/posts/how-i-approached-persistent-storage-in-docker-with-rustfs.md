@@ -1,6 +1,6 @@
 +++
 date = '2026-07-21T07:33:51+07:00'
-draft = false
+draft = true
 title = 'How I Approached Persistent Storage in Docker with RustFS'
 summary = 'A look at how I solved persistent file storage in containerized applications using RustFS.'
 description = 'A look at how I solved persistent file storage in containerized applications using RustFS.'

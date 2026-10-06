@@ -2,61 +2,38 @@
 title: About Me
 ---
 
-Full-Stack Software Engineer with 10+ years of experience building and scaling web platforms across fintech, edtech, and IoT industries. Proficient in Go, TypeScript, and SvelteKit, with a strong background in Site Reliability Engineering including observability, load testing, and CI/CD automation. Proven track record of delivering end-to-end features, leading platform migrations, and integrating third-party government APIs in high-stakes production environments.
+Backend engineer, 10 years. Go, PostgreSQL, Linux. Fintech, edtech, IoT.
+Small teams: owns services and data pipelines start to finish.
 
 ## Experience
 
-**Full-Stack Software Engineer**
-  | **Musang Teknologi Nusantara**
-  | **February 2025 - Present**
+### Musang Teknologi Nusantara — Full-Stack Engineer
+_Feb 2025 – present_
 
-- Architected a multi-tenant fuel monitoring platform from scratch, enabling multiple organizations to track embedded fuel systems through a unified dashboard.
-- Engineered real-time telemetry pipelines that replaced manual reporting across distributed client sites.
-- Established CI/CD pipelines with GitHub Actions and Docker, standardizing deployments and improving overall system reliability.
+- Own a multi-tenant fuel monitoring platform on PostgreSQL, started in Go and now on SvelteKit.
+- Replaced manual site reporting with a real-time telemetry ingestion pipeline.
+- CI/CD on GitHub Actions and Docker, deploying to Azure AKS.
 
-**Tech Stack:** Go, SvelteKit, PostgreSQL, Docker, GitHub Actions, Azure AKS
+### The Indonesia Capital Market Institute (TICMI) — Full-Stack Engineer
+_Aug 2021 – Feb 2025_
 
----
+- Maintain the Laravel/PostgreSQL backend behind monthly exams for hundreds of students.
+- Led the PRAKERJA government API integration end to end, covering thousands of students nationwide.
 
-**Full-Stack Software Engineer**
-  | **The Indonesia Capital Market Institute (TICMI)**
-  | **August 2021 - February 2025**
+### Global Tiket Network (Tiket) — Site Reliability Engineer
+_Oct 2018 – Aug 2021_
 
-- Developed and maintained critical features for an LMS platform serving thousands of students nationwide.
-- Led end-to-end PRAKERJA government API integration, expanding platform reach to a new user segment and unlocking a significant revenue stream.
+- Load-tested one of Indonesia's largest travel marketplaces with k6, then wrote the Go tooling to automate it.
+- Found Java service bottlenecks at peak traffic and handed them to the owning dev. Built Grafana, Prometheus, and New Relic dashboards.
 
-**Tech Stack:** JavaScript, Laravel, PostgreSQL, Docker, Google Cloud Platform
+### Visionet Internasional (OVO) — Site Reliability Engineer
+_Mar 2018 – Oct 2018_
 
----
+- Go, Prometheus, and Grafana observability stack for a digital payments platform on Linux.
+- Alerting and operational dashboards cut incident response time.
 
-**Site Reliability Engineer**
-  | **Global Tiket Network (Tiket)**
-  | **October 2018 - August 2021**
+### MBDC Media (Malesbanget) — Full-Stack Engineer
+_Oct 2015 – Mar 2018_
 
-- Designed and executed comprehensive load testing strategies for one of Indonesia's largest travel marketplaces.
-- Identified and resolved critical performance bottlenecks, ensuring platform stability during high-traffic peak events.
-
-**Tech Stack:** k6, Grafana, Prometheus, Linux, Go, Google Cloud Platform
-
----
-
-**Site Reliability Engineer**
-  | **Visionet Internasional (OVO)**
-  | **March 2018 - October 2018**
-
-- Built a real-time observability stack using Grafana and Prometheus for one of Indonesia's leading digital payment platforms.
-- Reduced incident response time through proactive alerting and operational dashboards, minimizing potential downtime.
-
-**Tech Stack:** Grafana, Prometheus, Linux, Go
-
----
-
-**Full-Stack Software Engineer**
-  | **MBDC Media (Malesbanget)**
-  | **October 2015 - March 2018**
-
-- Led a full platform migration from WordPress to a custom-built system, significantly improving performance and scalability.
-- Delivered user-facing features and developed multiple agency microsites, expanding the brand's digital portfolio.
-
-**Tech Stack:** JavaScript, PHP, Python, MySQL, HTML, CSS, Amazon Web Services (AWS)
-
+- Migrated the platform off WordPress to a custom PHP/MySQL system on AWS.
+- Shipped backend features and agency microsites.
