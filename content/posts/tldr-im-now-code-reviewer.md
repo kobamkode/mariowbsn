@@ -1,11 +1,12 @@
 +++
 author = 'Mario Wibisono'
 date = '2026-10-06T00:00:00+07:00'
-draft = true
+draft = false
 title = "TL;DR: I'm Now a Code Reviewer"
 summary = 'A reluctant developer who now uses AI, on one condition: it never works alone.'
 description = 'A reluctant developer who now uses AI, on one condition: it never works alone.'
 tags = ['ai', 'code-review', 'agents']
+images = ['images/og/tldr-im-now-code-reviewer.png']
 +++
 
 This is my own opinion. And thanks to Matt Pocock, I'm now a code reviewer.
@@ -21,3 +22,5 @@ So I started looking for the right AI provider. It had to fit my tight budget bu
 Then I found Matt Pocock's skills, and they were exactly what I needed. There's a grilling session that pushes back on my biased prompts, then turns them into specs and tickets. When it implements the code, it runs the tests too. After that, the reviewing is on me, and I keep cycling until every feature is done.
 
 So that's where I'm at. Trying to treat AI like a coworker, and still figuring it out as I go.
+
+_Cover photo: ["robots"](https://www.flickr.com/photos/68776313@N00/5164271) by jmorgan, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)._
