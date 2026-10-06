@@ -35,5 +35,5 @@ _Mar 2018 – Oct 2018_
 ### MBDC Media (Malesbanget) — Full-Stack Engineer
 _Oct 2015 – Mar 2018_
 
-- Migrated the platform off WordPress to a custom PHP/MySQL system on AWS.
+- Migrated the platform off WordPress to a custom Flask system on AWS.
 - Shipped backend features and agency microsites.
