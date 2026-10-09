@@ -1,0 +1,293 @@
+{{/* PROTOTYPE — throwaway, not production.
+Three variants of the about experience section, switchable via ?variant=,
+on the existing /about route. Data hardcoded here so content/about.md stays
+untouched; this file and its styles get captured to a throwaway branch when
+a variant wins. */}}
+
+{{ define "main" }}
+
+{{ $jobs := slice
+  (dict
+    "company" "Musang Teknologi Nusantara"
+    "role" "Full-Stack Engineer"
+    "date" "Feb 2025 – present"
+    "bullets" (slice
+      "Own a multi-tenant fuel monitoring platform on PostgreSQL, started in Go and now on SvelteKit."
+      "Replaced manual site reporting with a real-time telemetry ingestion pipeline."
+      "CI/CD on GitHub Actions and Docker, deploying to Azure AKS."))
+  (dict
+    "company" "The Indonesia Capital Market Institute (TICMI)"
+    "role" "Full-Stack Engineer"
+    "date" "Aug 2021 – Feb 2025"
+    "bullets" (slice
+      "Maintain the Laravel/PostgreSQL backend behind monthly exams for hundreds of students."
+      "Led the PRAKERJA government API integration end to end, covering thousands of students nationwide."))
+  (dict
+    "company" "Global Tiket Network (Tiket)"
+    "role" "Site Reliability Engineer"
+    "date" "Oct 2018 – Aug 2021"
+    "bullets" (slice
+      "Load-tested one of Indonesia's largest travel marketplaces with k6, then wrote the Go tooling to automate it."
+      "Found Java service bottlenecks at peak traffic and handed them to the owning dev. Built Grafana, Prometheus, and New Relic dashboards."))
+  (dict
+    "company" "Visionet Internasional (OVO)"
+    "role" "Site Reliability Engineer"
+    "date" "Mar 2018 – Oct 2018"
+    "bullets" (slice
+      "Go, Prometheus, and Grafana observability stack for a digital payments platform on Linux."
+      "Alerting and operational dashboards cut incident response time."))
+  (dict
+    "company" "MBDC Media (Malesbanget)"
+    "role" "Full-Stack Engineer"
+    "date" "Oct 2015 – Mar 2018"
+    "bullets" (slice
+      "Migrated the platform off WordPress to a custom Flask system on AWS."
+      "Shipped backend features and agency microsites."))
+}}
+
+<style>
+  .pv-variant[hidden] { display: none; }
+
+  .pv-intro p {
+    margin-top: var(--p-margin-top);
+    margin-bottom: var(--p-margin-bottom);
+  }
+
+  /* Variant A — timeline rail with dots */
+  .pv-a ol.pv-rail {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--content-secondary);
+    margin-left: 6px;
+  }
+  .pv-a ol.pv-rail > li {
+    position: relative;
+    padding-left: 1.6em;
+    margin-bottom: 1.8rem;
+  }
+  .pv-a ol.pv-rail > li:last-child { margin-bottom: 0; }
+  .pv-a ol.pv-rail > li::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 0.35em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--background);
+    border: 2px solid var(--content-primary);
+  }
+  .pv-a .pv-date {
+    display: block;
+    font-size: 0.85em;
+    color: var(--content-secondary);
+  }
+  .pv-a h3 { margin: 0.15em 0 0.4em; font-size: var(--hx-font-size); }
+  .pv-a ul { margin: 0; padding-left: var(--li-indent); }
+  .pv-a h2 { margin-bottom: 1rem; }
+
+  /* Variant B — card grid */
+  .pv-b {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .pv-b > li {
+    border: 1px solid var(--code-border);
+    border-radius: var(--code-border-radius);
+    background: var(--code-background);
+    padding: 1rem 1.1rem;
+  }
+  .pv-b .pv-date {
+    display: inline-block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--content-secondary);
+    border: 1px solid var(--code-border);
+    border-radius: 999px;
+    padding: 0.1em 0.6em;
+    margin-bottom: 0.5em;
+  }
+  .pv-b h3 { margin: 0 0 0.3em; font-size: 1.1em; }
+  .pv-b .pv-role { margin: 0 0 0.5em; font-size: 0.9em; color: var(--content-secondary); }
+  .pv-b ul { margin: 0; padding-left: 1.2em; font-size: 0.92em; }
+
+  /* Variant C — dense resume rows */
+  .pv-c {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--code-border);
+  }
+  .pv-c > li {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.5rem 1.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--code-border);
+  }
+  .pv-c .pv-date {
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    color: var(--content-secondary);
+    padding-top: 0.2em;
+  }
+  .pv-c h3 { margin: 0; font-size: 1.05em; }
+  .pv-c .pv-role { margin: 0 0 0.4em; font-size: 0.9em; color: var(--content-secondary); }
+  .pv-c ul { margin: 0; padding-left: 1.2em; font-size: 0.92em; }
+
+  @media screen and (max-width: 640px) {
+    .pv-c > li { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+
+  /* Floating switcher — local dev only */
+  #pv-bar {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #111;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    z-index: 9999;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    user-select: none;
+  }
+  #pv-bar button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0 0.2rem;
+  }
+  #pv-label { min-width: 11ch; text-align: center; }
+</style>
+
+{{ partial "breadcrumbs.html" . }}
+
+<div>
+  <article>
+    <header class="single-intro-container">
+      <h1 class="single-title">{{ .Title }}</h1>
+    </header>
+
+    <div class="single-content">
+      <div class="pv-intro">
+        <p>Backend engineer, 10 years. Go, PostgreSQL, Linux. Fintech, edtech, IoT.
+Small teams: owns services and data pipelines start to finish.</p>
+      </div>
+
+      <h2>Experience</h2>
+
+      {{/* Variant A — timeline */}}
+      <section class="pv-variant pv-a" data-pv="A" aria-label="variant A timeline">
+        <ol class="pv-rail">
+          {{ range $jobs }}
+          <li>
+            <span class="pv-date">{{ .date }}</span>
+            <h3>{{ .company }} — {{ .role }}</h3>
+            <ul>
+              {{ range .bullets }}<li>{{ . }}</li>{{ end }}
+            </ul>
+          </li>
+          {{ end }}
+        </ol>
+      </section>
+
+      {{/* Variant B — card grid */}}
+      <section class="pv-variant pv-b-wrap" data-pv="B" aria-label="variant B cards" hidden>
+        <ul class="pv-b">
+          {{ range $jobs }}
+          <li>
+            <span class="pv-date">{{ .date }}</span>
+            <h3>{{ .company }}</h3>
+            <p class="pv-role">{{ .role }}</p>
+            <ul>
+              {{ range .bullets }}<li>{{ . }}</li>{{ end }}
+            </ul>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+
+      {{/* Variant C — resume rows */}}
+      <section class="pv-variant pv-c-wrap" data-pv="C" aria-label="variant C resume rows" hidden>
+        <ul class="pv-c">
+          {{ range $jobs }}
+          <li>
+            <span class="pv-date">{{ .date }}</span>
+            <div>
+              <h3>{{ .company }}</h3>
+              <p class="pv-role">{{ .role }}</p>
+              <ul>
+                {{ range .bullets }}<li>{{ . }}</li>{{ end }}
+              </ul>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+    </div>
+  </article>
+</div>
+
+{{ if hugo.IsServer }}
+<div id="pv-bar" role="navigation" aria-label="prototype variant switcher">
+  <button type="button" id="pv-prev" aria-label="previous variant">←</button>
+  <span id="pv-label">A (Timeline)</span>
+  <button type="button" id="pv-next" aria-label="next variant">→</button>
+</div>
+<script>
+  (function () {
+    var order = ["A", "B", "C"];
+    var names = { A: "Timeline", B: "Cards", C: "Resume rows" };
+    var sections = document.querySelectorAll("[data-pv]");
+    var label = document.getElementById("pv-label");
+    var current = "A";
+
+    function show(v) {
+      if (order.indexOf(v) === -1) v = "A";
+      current = v;
+      sections.forEach(function (s) {
+        s.hidden = s.getAttribute("data-pv") !== v;
+      });
+      label.textContent = v + " (" + names[v] + ")";
+      var u = new URL(location.href);
+      if (v === "A") u.searchParams.delete("variant");
+      else u.searchParams.set("variant", v);
+      history.replaceState(null, "", u);
+    }
+
+    function move(d) {
+      var i = (order.indexOf(current) + d + order.length) % order.length;
+      show(order[i]);
+    }
+
+    document.getElementById("pv-prev").addEventListener("click", function () { move(-1); });
+    document.getElementById("pv-next").addEventListener("click", function () { move(1); });
+    document.addEventListener("keydown", function (e) {
+      var t = e.target;
+      if (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable) return;
+      if (e.key === "ArrowLeft") move(-1);
+      if (e.key === "ArrowRight") move(1);
+    });
+
+    show(new URL(location.href).searchParams.get("variant") || "A");
+  })();
+</script>
+{{ end }}
+
+{{ end }}
