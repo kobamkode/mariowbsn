@@ -1,0 +1,51 @@
+/* About page experience timeline (variant C) */
+.experience-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--code-border);
+}
+
+.experience-rows > li {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.5rem 1.5rem;
+  margin-left: 0;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--code-border);
+}
+
+.experience-rows .exp-date {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  color: var(--content-secondary);
+  padding-top: 0.2em;
+}
+
+.experience-rows h3 {
+  margin: 0;
+  font-size: 1.05em;
+}
+
+.experience-rows .exp-role {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  color: var(--content-secondary);
+}
+
+.experience-rows ul {
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: 0.92em;
+}
+
+.experience-rows ul li {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .experience-rows > li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
