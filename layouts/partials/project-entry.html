@@ -1,0 +1,14 @@
+<div class="post-line">
+
+    <div>
+        <p class="line-title">
+            <a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer">
+                {{ .name }}
+            </a>
+        </p>
+
+        {{ with .description }}
+        <p class="line-summary"> {{ . }} </p>
+        {{ end }}
+    </div>
+</div>

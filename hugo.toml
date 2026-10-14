@@ -29,10 +29,19 @@ This is where I write about my thoughts, projects, and hobbies I'm currently int
 homeCollectionTitle = 'Posts'
 homeCollection = 'posts'
 
+# Projects to display on home
+homeProjectsTitle = 'Projects'
+
 # Lists parameters
 paginationSize = 100
 listSummaries = true
 listDateFormat = '2 Jan 2006'
+
+# Projects
+[[params.projects]]
+name = 'Capture'
+description = 'Append thoughts and tasks to your Obsidian daily note straight from the shell.'
+url = 'https://github.com/kobamkode/capture'
 
 # Breadcrumbs
 [params.breadcrumbs]
@@ -61,6 +70,10 @@ url = "/"
 [[params.menu]]
 name = "posts"
 url = "/posts"
+
+[[params.menu]]
+name = "projects"
+url = "/projects"
 
 [[params.menu]]
 name = "about"
