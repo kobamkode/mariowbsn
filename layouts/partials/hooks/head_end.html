@@ -1,0 +1,8 @@
+{{- $img := partial "head/og-image.html" . -}}
+{{- with $img }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ . }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MacBook, pen and coffee cup on a wooden desk">
+{{ end -}}
