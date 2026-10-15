@@ -74,5 +74,3 @@ Two problems have no settled answer. First, where is the line between useful aut
 ---
 
 *Adapted from [Agentic Knowledge Management](https://pkm-wiki.knowii.net/agentic-knowledge-management) by Sébastien Dubois (PKM Wiki, Knowii).*
-
-*Open Graph image: "Brain Coral" by Paul Garland, licensed under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/).*
