@@ -6,7 +6,6 @@ title = 'Agentic Knowledge Management: From Notes to an AI-Ready Second Brain'
 summary = 'How personal knowledge management moves from a passive note store to a system where AI agents handle capture, filing, linking, and synthesis.'
 description = 'How personal knowledge management moves from a passive note store to a system where AI agents handle capture, filing, linking, and synthesis.'
 tags = ['pkm', 'ai', 'agents']
-images = ['images/og/agentic-knowledge-management.png']
 +++
 
 Personal knowledge management treats notes as an exocortex, an external memory that frees your brain for thinking. The system itself does nothing. You capture, organize, link, review, and create. The notes sit there until you touch them again.
