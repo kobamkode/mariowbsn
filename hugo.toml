@@ -62,6 +62,10 @@ url = "https://www.linkedin.com/in/mrwbsn/"
 name = "github"
 url = "https://github.com/kobamkode"
 
+[[params.social]]
+name = "instagram"
+url = "https://www.instagram.com/mrwbsn/"
+
 # Main menu pages
 [[params.menu]]
 name = "home"
