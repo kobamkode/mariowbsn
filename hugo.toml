@@ -39,6 +39,11 @@ listDateFormat = '2 Jan 2006'
 
 # Projects
 [[params.projects]]
+name = 'Kanistr'
+description = 'Copies photos and videos from a mounted camera card into a dated folder tree.'
+url = 'https://github.com/kobamkode/kanistr'
+
+[[params.projects]]
 name = 'Capture'
 description = 'Append thoughts and tasks to your Obsidian daily note straight from the shell.'
 url = 'https://github.com/kobamkode/capture'
