@@ -8,9 +8,9 @@ description = 'Sorting a card into dated folders by hand was the boring step bef
 tags = ['photography', 'rust', 'workflow']
 +++
 
-When I get home from a shoot, the card has a few hundred files on it. Some are from that day, some are from a trip two weeks ago that I never cleared. They all sit in `DCIM` folders with names like `DSCF4821.RAF`, so before I can delete a single bad frame I have to figure out which photo belongs to which day and move it there.
+When I get home from a shoot, the card has a few hundred files on it. Some are from that day, some are from a trip two weeks ago that I never cleared. They all sit in `DCIM` folders and have names like `DSCF4821.RAF`, so before I can delete a single bad frame, I have to figure out which photo belongs to which day and move it there.
 
-I used to do this in the file manager. Select the files, make a folder for each date, drag things around. It works, but it takes a while and I get it wrong sometimes. A file stays on the card, a day ends up split across two folders, or a photo taken after midnight goes into the wrong one. None of that is hard. It is just annoying, and I would rather spend that time looking at the photos.
+I used to do this in the file manager. Select the files, make a folder for each date, drag things around. It works, but it takes a while and I get it wrong sometimes. A file gets left on the card, a day ends up split across two folders, or a photo taken after midnight goes into the wrong one. None of that is hard. It is just annoying, and I would rather spend that time looking at the photos.
 
 So I wrote [Kanistr](https://github.com/kobamkode/kanistr). You plug the card in, choose a destination folder, press Import, and it copies everything into:
 
@@ -29,7 +29,7 @@ A few details matter when you are copying files you cannot lose:
 - Copies run in parallel, one to ten at a time.
 - Folders named `MISC` and files starting with `._` are ignored.
 
-That last one is small, but it keeps the camera's junk out of the library.
+Those last two are small details, but they keep the camera's junk out of the library.
 
 Once the import finishes I open the destination and start culling. Each day has its own folder, which is how I like to review a shoot. I cull first, then edit, and by then the library already makes sense.
 
