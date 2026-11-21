@@ -46,6 +46,8 @@ That changed what Obsidian is for. It stopped being where I capture and became w
 
 The friction is gone because the tool moved to where the problem is. The thought never leaves the terminal, so neither do I.
 
+*Update: capture has changed since this post — it now carries ids, lists captures, and opens the day. See [Capture Can Read Back What It Wrote](/posts/capture-can-read-back-what-it-wrote/).*
+
 Install it with `go install github.com/kobamkode/capture@latest`.
 
 Source and docs live at [github.com/kobamkode/capture](https://github.com/kobamkode/capture).
